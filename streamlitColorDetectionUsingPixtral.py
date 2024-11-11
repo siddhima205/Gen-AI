@@ -8,7 +8,7 @@ from fuzzywuzzy import fuzz
 from sentence_transformers import SentenceTransformer, util
 
 def check_product_color_and_type(url):
-    api_key = "K6KRQPY4DR9B1uSBzbMAg0Q8C8Hile3H"
+    api_key = "key"
     model = "pixtral-12b-2409"
     client = Mistral(api_key=api_key)
     messages = [

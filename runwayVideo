@@ -1,0 +1,22 @@
+import time
+from runwayml import RunwayML
+ 
+client = RunwayML(api_key="key_32bfc791261f4e7fb13026b7d2553fb7cf24be4d960498532bd5b7c9fd7d0868879bc0d770c88c3b3ae37a09c0d6efaf4f8d62346f843fd192c7db6bb9053324")
+ 
+# Create a new image-to-video task using the "gen3a_turbo" model
+task = client.image_to_video.create(
+  model='gen3a_turbo',
+  # Point this at your own image file
+  prompt_image='https://i.imghippo.com/files/FuigW1728490408.jpg',
+  prompt_text='A beautifully designed ceramic mug sitting on a rustic wooden table. The mug has a steaming hot beverage inside. The camera slowly zooms in, showcasing the mug details and the steam rising from the hot drink, creating a cozy atmosphere. Soft, warm lighting enhances the inviting feel of the scene.',
+)
+task_id = task.id
+ 
+# Poll the task until it's complete
+time.sleep(10)  # Wait for a second before polling
+task = client.tasks.retrieve(task_id)
+while task.status not in ['SUCCEEDED', 'FAILED']:
+  time.sleep(10)  # Wait for ten seconds before polling
+  task = client.tasks.retrieve(task_id)
+ 
+print('Task complete:', task)

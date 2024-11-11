@@ -1,0 +1,14 @@
+langchain
+langchain_ollama
+ollama
+pandas 
+scikit-learn
+openpyxl
+torch torchvision torchaudio
+transformers
+tensorflow
+flax
+tf-keras
+fuzzywuzzy
+mistralai
+sentence_transformers

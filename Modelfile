@@ -1,0 +1,6 @@
+FROM mistral
+TEMPLATE """[INST] {{ .System }} {{ .Prompt }} [/INST]"""
+PARAMETER stop "[INST]"
+PARAMETER stop "[/INST]"
+PARAMETER temperature 1
+SYSTEM "You are Jarvis... just like the AI of Iron Man."
